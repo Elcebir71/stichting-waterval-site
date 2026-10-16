@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  ExternalLink,
+} from "lucide-react";
 import { asset } from "@/lib/paths";
 import { NAV_LINKS, SITE } from "./content";
 
@@ -53,9 +60,25 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    {...(link.external
+                      ? {
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        }
+                      : {})}
                     className="text-sm text-white/80 transition-colors hover:text-white"
                   >
                     {link.label}
+                    {link.external && (
+                      <>
+                        {" "}
+                        <ExternalLink
+                          className="inline h-3 w-3"
+                          aria-hidden={true}
+                        />
+                        <span className="sr-only">(opent in nieuw venster)</span>
+                      </>
+                    )}
                   </a>
                 </li>
               ))}
@@ -85,13 +108,10 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href={`${SITE.baseUrl}/anbi/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
-                  Bestuursverslag
-                  <span className="sr-only"> (opent in nieuw venster)</span>
+                  Contact opnemen
                 </a>
               </li>
             </ul>

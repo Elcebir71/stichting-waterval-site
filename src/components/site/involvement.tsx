@@ -240,14 +240,13 @@ export function Anbi() {
               fiscaal aftrekbaar zijn.
             </p>
             <a
-              href={`${SITE.baseUrl}/anbi/`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent(
+                "Opvragen ANBI-gegevens (bestuur en beleidsplan)"
+              )}`}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-amber-600"
             >
-              Bekijk de ANBI-gegevens op onze huidige site
+              Bestuurs- en beleidsgegevens opvragen via e-mail
               <ArrowRight className="h-4 w-4" aria-hidden={true} />
-              <span className="sr-only">(opent in nieuw venster)</span>
             </a>
           </div>
 

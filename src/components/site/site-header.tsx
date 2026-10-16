@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Menu, Heart, X } from "lucide-react";
+import { Menu, Heart, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { asset } from "@/lib/paths";
 import { NAV_LINKS, SITE } from "./content";
@@ -52,9 +52,26 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
+                  {...(link.external
+                    ? {
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      }
+                    : {})}
+                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}
+                  {link.external && (
+                    <>
+                      <ExternalLink
+                        className="h-3 w-3 text-muted-foreground"
+                        aria-hidden={true}
+                      />
+                      <span className="sr-only">
+                        (opent in nieuw venster)
+                      </span>
+                    </>
+                  )}
                 </a>
               </li>
             ))}
@@ -101,9 +118,26 @@ export function SiteHeader() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-3 text-base font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
+                  {...(link.external
+                    ? {
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      }
+                    : {})}
+                  className="flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}
+                  {link.external && (
+                    <>
+                      <ExternalLink
+                        className="h-4 w-4 text-muted-foreground"
+                        aria-hidden={true}
+                      />
+                      <span className="sr-only">
+                        (opent in nieuw venster)
+                      </span>
+                    </>
+                  )}
                 </a>
               </li>
             ))}

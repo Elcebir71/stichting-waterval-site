@@ -7,6 +7,7 @@ export const SITE = {
   address: "De Striptekenaar 22, 1336 CM Almere",
   facebook: "https://www.facebook.com/StichtingWaterval/",
   instagram: "https://www.instagram.com/st_waterval",
+  basisschool: "https://www.bswaterval.nl",
   baseUrl: "https://www.stichtingwaterval.nl",
 } as const;
 
@@ -138,10 +139,22 @@ export const VALUES = [
   },
 ] as const;
 
-export const NAV_LINKS = [
+export type NavLink = {
+  label: string;
+  href: string;
+  /** Externe link: opent in een nieuw tabblad. */
+  external?: boolean;
+};
+
+export const NAV_LINKS: NavLink[] = [
   { label: "Over ons", href: "#over-ons" },
   { label: "Wat we doen", href: "#waar-we-voor-staan" },
   { label: "Activiteiten", href: "#activiteiten" },
   { label: "Meedoen", href: "#meedoen" },
   { label: "Contact", href: "#contact" },
-] as const;
+  {
+    label: "Basisschool Waterval",
+    href: SITE.basisschool,
+    external: true,
+  },
+];
