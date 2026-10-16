@@ -15,8 +15,10 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="Stichting Waterval — home">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-name">STICHTING <strong>WATerval</strong><small>ALMERE · SAMEN VERDER</small></span>
+        <picture class="brand-logo">
+          <source media="(max-width: 680px)" srcset="assets/waterval-logo-compact.png">
+          <img src="assets/waterval-logo-wide.png" alt="Stichting Waterval">
+        </picture>
       </a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
       <nav id="main-nav" class="main-nav" aria-label="Hoofdnavigatie">
@@ -42,7 +44,7 @@
           </div>
           <div class="hero-note"><span class="note-icon" aria-hidden="true">✳</span><span>Een stichting voor ontmoeting, ontwikkeling en verbinding.</span></div>
         </div>
-        <div class="hero-art" role="img" aria-label="Abstracte illustratie van mensen die samenkomen">
+        <div class="hero-art" role="img" aria-label="Illustratie van mensen die samenkomen">
           <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
           <div class="art-sun"></div>
           <div class="art-card card-one"><span class="mini-icon">✳</span><strong>Samen</strong><small>ontmoeten</small></div>
@@ -83,21 +85,36 @@
           <div><p class="eyebrow">Wat we doen</p><h2>Activiteiten die verbinden.</h2></div>
           <p>Ontdek de verschillende manieren waarop mensen elkaar kunnen ontmoeten en samen kunnen leren.</p>
         </div>
-        <div class="activity-grid">
+        <div class="activity-grid activity-grid-real">
           <article class="activity-card">
-            <div class="activity-visual visual-blue"><span aria-hidden="true">Aa</span><i>01</i></div>
-            <div class="activity-content"><p class="card-kicker">Leren & ontwikkelen</p><h3>Educatie</h3><p>Ruimte om kennis te delen, vaardigheden te ontwikkelen en nieuwe mogelijkheden te ontdekken.</p><a href="https://www.stichtingwaterval.nl/" class="card-link">Ontdek meer <span aria-hidden="true">→</span></a></div>
+            <a class="activity-photo-link" href="https://www.stichtingwaterval.nl/overige-activiteiten-2/" aria-label="Lees over Ark van Noach en iftarbijeenkomsten">
+              <img class="activity-photo" src="https://www.stichtingwaterval.nl/wp-content/uploads/2020/09/asure_gunu_ne_zaman_anlami_ve_onemi_nedir_h16792.jpg" alt="Aşure, verbonden aan de dialoogbijeenkomst Ark van Noach" loading="lazy">
+            </a>
+            <div class="activity-content"><p class="card-kicker">Dialoog & ontmoeting</p><h3>Ark van Noach</h3><p>Een dialoogbijeenkomst rond gedeelde verhalen en tradities, met aandacht voor vrede, begrip en verbinding tussen verschillende levensbeschouwingen.</p><a href="https://www.stichtingwaterval.nl/overige-activiteiten-2/" class="card-link">Lees over het project <span aria-hidden="true">→</span></a></div>
           </article>
           <article class="activity-card">
-            <div class="activity-visual visual-yellow"><span aria-hidden="true">✳</span><i>02</i></div>
-            <div class="activity-content"><p class="card-kicker">Creativiteit & expressie</p><h3>Kunst & cultuur</h3><p>Culturele activiteiten kunnen mensen samenbrengen en ruimte geven aan verschillende perspectieven.</p><a href="https://www.stichtingwaterval.nl/" class="card-link">Ontdek meer <span aria-hidden="true">→</span></a></div>
+            <a class="activity-photo-link" href="https://www.stichtingwaterval.nl/overige-activiteiten-2/" aria-label="Lees over de iftarbijeenkomsten">
+              <img class="activity-photo" src="https://www.stichtingwaterval.nl/wp-content/uploads/2020/09/ramadan-iftar-buffet.jpg" alt="Iftar-maaltijd als moment van ontmoeting" loading="lazy">
+            </a>
+            <div class="activity-content"><p class="card-kicker">Samen aan tafel</p><h3>Iftar-bijeenkomsten</h3><p>Stichting Waterval heeft door de jaren heen iftars georganiseerd om mensen samen te brengen. De bestaande website vermeldt bijeenkomsten met 150 tot 400 gasten.</p><a href="https://www.stichtingwaterval.nl/overige-activiteiten-2/" class="card-link">Bekijk de achtergrond <span aria-hidden="true">→</span></a></div>
           </article>
           <article class="activity-card">
-            <div class="activity-visual visual-green"><span aria-hidden="true">◌</span><i>03</i></div>
-            <div class="activity-content"><p class="card-kicker">Samen in de buurt</p><h3>Ontmoeting & verbinding</h3><p>Activiteiten die contact stimuleren, mensen bij elkaar brengen en betrokkenheid versterken.</p><a href="https://www.stichtingwaterval.nl/" class="card-link">Ontdek meer <span aria-hidden="true">→</span></a></div>
+            <a class="activity-photo-link" href="https://www.stichtingwaterval.nl/kook-cursus/" aria-label="Lees over kookcursussen">
+              <img class="activity-photo" src="https://www.stichtingwaterval.nl/wp-content/uploads/2020/09/kookcursus.jpg" alt="Kookactiviteit met Turkse gerechten" loading="lazy">
+            </a>
+            <div class="activity-content"><p class="card-kicker">Cultuur & koken</p><h3>Kookworkshops</h3><p>Praktische workshops waarin deelnemers Turkse gerechten leren bereiden, samen koken en aan het einde van de les met elkaar eten.</p><a href="https://www.stichtingwaterval.nl/kook-cursus/" class="card-link">Bekijk de kookcursus <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="activity-card">
+            <div class="activity-content activity-content-only"><p class="card-kicker">Onderwijs & ontwikkeling</p><h3>Huiswerkbegeleiding</h3><p>Begeleiding voor leerlingen in het voortgezet onderwijs bij schoolvakken, planning en het zelfstandig leren werken.</p><a href="https://www.stichtingwaterval.nl/huiswerkbegeleiding/" class="card-link">Meer over begeleiding <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="activity-card">
+            <div class="activity-content activity-content-only"><p class="card-kicker">Buurt & verbinding</p><h3>Bezoek je Buren</h3><p>Een laagdrempelig project waarin buurtbewoners met verschillende achtergronden elkaar leren kennen, vaak onder het genot van Turkse hapjes.</p><a href="https://www.stichtingwaterval.nl/overige-activiteiten/" class="card-link">Lees over het project <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="activity-card">
+            <div class="activity-content activity-content-only"><p class="card-kicker">Samen koken & proeven</p><h3>Baklava, yağlama en bazaars</h3><p>De activiteitenpagina vermeldt onder meer baklava- en yağlama-workshops, gezamenlijke ontbijtactiviteiten en bazaars. Data van afgelopen evenementen blijven als terugblik herkenbaar.</p><a href="https://www.stichtingwaterval.nl/activiteiten/" class="card-link">Bekijk activiteitenoverzicht <span aria-hidden="true">→</span></a></div>
           </article>
         </div>
-        <p class="content-note">Prototype: controleer de teksten en koppel iedere kaart aan de juiste, bestaande activiteitenpagina voordat de site live gaat.</p>
+        <p class="content-note">Deze activiteiten zijn gebaseerd op informatie op de bestaande website. Controleer de afbeeldingsbestanden en gebruiksrechten vóór publicatie; oude evenementen worden als terugblik gepresenteerd.</p>
       </div>
     </section>
 
@@ -121,8 +138,9 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="brand brand-footer" href="#top">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="brand-name">STICHTING <strong>WATerval</strong><small>ALMERE · SAMEN VERDER</small></span>
+          <picture class="brand-logo brand-logo-footer">
+            <img src="assets/waterval-logo-wide.png" alt="Stichting Waterval">
+          </picture>
         </a>
         <p>Ruimte voor ontmoeting, ontwikkeling en verbinding in Almere.</p>
       </div>

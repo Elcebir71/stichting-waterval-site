@@ -25,6 +25,8 @@ A workflow file is included in `.github/workflows/pages.yml` for GitHub's Pages 
 - GitHub Pages hosts static files; it does not run WordPress or PHP. The existing WordPress site remains unchanged by this prototype.
 
 
-## License
-
-The source code in this starter project is provided under the MIT License (see `LICENSE`). This license does not automatically grant rights to third-party logos, photographs, trademarks, or other content that may be added later; confirm those rights separately.
+## Update: official logos and documented activities
+- The header uses the supplied compact logo on narrow screens and the supplied wide logo on larger screens.
+- Activity cards now reflect activities documented on the existing Stichting Waterval website, including Ark van Noach, iftar gatherings, cooking workshops, homework support and Bezoek je Buren.
+- Some activity images reference the existing website's WordPress media URLs. Check that those URLs still work and confirm image usage rights before launch.
+- Past events should be displayed as archive/recap items, not as upcoming events.
