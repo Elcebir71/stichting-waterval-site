@@ -1,32 +1,84 @@
-# Stichting Waterval — website prototype
+# Stichting Waterval — Website (Next.js)
 
-A responsive static homepage concept for the Stichting Waterval website.
+Stichting Waterval Almere'nin modern web sitesi.
+Next.js 16 + TypeScript + Tailwind CSS + shadcn/ui ile geliştirilmiştir.
 
-## Preview locally
-Open `index.html` in a browser, or run a local static server.
+## Özellikler
 
-## Publish with GitHub Pages
-1. Create a new **public** repository on GitHub (for example `stichting-waterval-site`).
-2. Upload all files and folders from this project to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Choose branch `main` and folder `/ (root)`, then save.
-6. Wait for GitHub Pages to publish the site. The URL will be shown on the Pages settings page.
+- Tek sayfa kurumsal site: Hero, Over ons, Activiteiten, Meedoen, Donatie,
+  ANBI ve Contact bölümleri
+- Gerçek görseller: topluluk fotoğrafı (hero + sosyal medya paylaşım kartı),
+  gerçek etkinlik afişi (Ark van Noach) ve 4 aktivite kartının tamamında
+  fotoğraf (kookworkshop, bezoek je buren, huiswerkbegeleiding)
+- Hollandaca içerik + tam SEO meta etiketleri (title, description, Open Graph)
+- İletişim formu üç modda çalışabilir (build zamanında seçilir):
+  1. **API modu** (varsayılan): `POST /api/contact` → Prisma/SQLite'a kaydeder
+  2. **Endpoint modu**: `NEXT_PUBLIC_FORM_ENDPOINT` verilirse Formspree/Web3Forms'a POST eder
+  3. **Statik mod** (GitHub Pages): `NEXT_PUBLIC_STATIC_EXPORT=1` ile mailto e-postası açar
+- Statik export desteği: `NEXT_STATIC_EXPORT=1` ile `out/` klasörüne statik HTML derler
 
-A workflow file is included in `.github/workflows/pages.yml` for GitHub's Pages deployment flow. If you use this workflow, enable **Settings → Pages → Build and deployment → GitHub Actions**.
+## GitHub Pages'e yayınlama
 
-## Before public launch
-- This is a design prototype, not a finished migration of the live WordPress website.
-- Confirm all copy, organizational details, activity descriptions and links with Stichting Waterval.
-- Check the actual donation URL and privacy policy URL; current links are placeholders or link to the existing site.
-- Replace the abstract hero illustration with approved, authentic photos only when consent and usage rights are confirmed.
-- Check all old URLs and configure redirects before moving the real domain.
-- Do not put passwords, API keys, private donor information or other secrets in this repository.
-- GitHub Pages hosts static files; it does not run WordPress or PHP. The existing WordPress site remains unchanged by this prototype.
+1. Bu depoyu GitHub'a yükleyin (tüm dosyalar repo kökünde olmalı)
+2. **Settings → Pages** → Build and deployment → Source: **GitHub Actions**
+3. Her push sonrası `.github/workflows/pages.yml` otomatik derleyip yayınlar
+4. Site adresi: `https://<kullanıcı>.github.io/<repo-adı>/`
+   (özel alan adı/CNAME varsa Actions otomatik olarak kök yolda yayınlar)
 
+## Yerelde çalıştırma
 
-## Update: official logos and documented activities
-- The header uses the supplied compact logo on narrow screens and the supplied wide logo on larger screens.
-- Activity cards now reflect activities documented on the existing Stichting Waterval website, including Ark van Noach, iftar gatherings, cooking workshops, homework support and Bezoek je Buren.
-- Some activity images reference the existing website's WordPress media URLs. Check that those URLs still work and confirm image usage rights before launch.
-- Past events should be displayed as archive/recap items, not as upcoming events.
+```bash
+bun install
+bun run dev          # http://localhost:3000
+```
+
+## Statik build almak (elle)
+
+```bash
+bun run build:export:subpath   # /<repo-adı> alt yolu için
+# veya özel alan adı için:
+NEXT_STATIC_EXPORT=1 NEXT_PUBLIC_STATIC_EXPORT=1 bun run build:export
+```
+
+Çıktı `out/` klasörüne düşer; GitHub Pages'e yüklenmeye hazırdır.
+
+## Form endpoint'i ayarlamak
+
+`.github/workflows/pages.yml` içindeki build adımının env bloğuna:
+
+```yaml
+NEXT_PUBLIC_FORM_ENDPOINT: "https://formspree.io/f/xxxxxxxx"
+```
+
+## Veritabanı (API modu)
+
+```bash
+bun run db:push      # şemayı uygula
+```
+
+SQLite dosyası `db/custom.db` üzerinde tutulur (yalnızca sunucu modunda gerekir).
+
+## Fotoğrafları değiştirmek
+
+`public/images/` altındaki dosyaları aynı isimle değiştirmeniz yeterli:
+
+| Dosya | Kullanım yeri |
+|---|---|
+| `samen-aan-tafel.jpg` | Hero bölümü + sosyal medya paylaşım görseli |
+| `ark-van-noach-poster.webp` | Öne çıkan etkinlik kartı (afiş) |
+| `kookworkshops.webp` | Kookworkshops kartı |
+| `bezoek-je-buren.webp` | Bezoek je Buren kartı |
+| `huiswerkbegeleiding.webp` | Huiswerkbegeleiding kartı |
+| `logo-wide.png` | Üst menü logosu |
+
+Başka bir dosya adı kullanmak isterseniz `src/components/site/content.ts`
+içindeki `image:` yollarını güncelleyin.
+
+## Doldurulması gerekenler (vakıf verisi)
+
+- [ ] Donasyon kartındaki IBAN (+ iDEAL/Mollie butonu)
+- [ ] ANBI tablosundaki RSIN ve KvK numaraları
+
+## Teknolojiler
+
+Next.js 16 · TypeScript · Tailwind CSS 4 · shadcn/ui · Prisma (SQLite) · Lucide Icons
