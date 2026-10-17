@@ -68,74 +68,123 @@ export const ACTIVITIES: Activity[] = [
   },
 ];
 
-export const EXTRA_ACTIVITIES: Activity[] = [
+/** "Wat doen wij?" — het volledige programma, gebaseerd op de bestaande website. */
+export type ProgramItem = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
+export const WHAT_WE_DO: ProgramItem[] = [
   {
-    title: "Cursus Turks",
-    kicker: "Taal",
-    icon: "languages",
+    title: "Weekendschool",
     description:
-      "Leer de Turkse taal op eigen niveau, van basis tot gevorderd, in kleine groepen.",
+      "Ontwikkeling en ondersteuning voor leerlingen van groep 5, 6, 7 en 8.",
+    icon: "book-open",
+  },
+  {
+    title: "Huiswerkbegeleiding",
+    description:
+      "Begeleiding bij schoolvakken en planning voor het voortgezet onderwijs.",
+    icon: "pen-line",
+  },
+  {
+    title: "Cito-trainingen",
+    description:
+      "Gerichte trainingen ter voorbereiding op de Cito-toets.",
+    icon: "target",
+  },
+  {
+    title: "Privélessen",
+    description:
+      "Individuele lessen op maat, afgestemd op het eigen tempo.",
+    icon: "book-user",
+  },
+  {
+    title: "Taalcursussen",
+    description:
+      "Turks en Nederlands op eigen niveau, van basis tot gevorderd.",
+    icon: "languages",
   },
   {
     title: "Cursus Fotografie",
-    kicker: "Kunst & creativiteit",
-    icon: "camera",
     description:
       "Ontdek de basis van fotografie en leer je eigen verhaal beeldend te vertellen.",
+    icon: "camera",
   },
   {
-    title: "Zomer Picknick",
-    kicker: "Samen buiten",
+    title: "Ebru- en kookworkshops",
+    description:
+      "Traditionele ebru-kunst en het samen bereiden van authentieke gerechten.",
+    icon: "utensils",
+  },
+  {
+    title: "Picknicken",
+    description:
+      "Gezellige picknicks waar bewoners elkaar ontmoeten en buiten samen komen.",
     icon: "trees",
-    description:
-      "Een gezellige picknick waar bewoners elkaar ontmoeten en de zomer samen vieren.",
   },
   {
-    title: "Appeltje van Oranje",
-    kicker: "Integratie & verbinding",
-    icon: "heart-handshake",
+    title: "Multiculturele evenementen",
     description:
-      "Een bijeenkomst rond maatschappelijke betrokkenheid en verbinding binnen de wijk.",
+      "Van festivals tot buurtavonden: evenementen die mensen dichterbij elkaar brengen.",
+    icon: "party",
+  },
+  {
+    title: "Theeavonden",
+    description:
+      "Ontspannen avonden waarin gesprekken en nieuwe vriendschappen centraal staan.",
+    icon: "coffee",
+  },
+  {
+    title: "Koffiedagen",
+    description:
+      "Open huis: gewoon een bakkie doen met buren, vrienden en familie.",
+    icon: "cookie",
+  },
+  {
+    title: "Iftar-bijeenkomsten",
+    description:
+      "Samen eten en ontmoeten tijdens de Ramadan met iftar-maaltijden.",
+    icon: "moon-star",
+  },
+  {
+    title: "Lezingen",
+    description:
+      "Informatieve lezingen rond actuele sociaal-maatschappelijke thema's.",
+    icon: "mic",
   },
 ];
 
-/** Waar we voor staan — gebaseerd op de bestaande website. */
-export const VALUES = [
+/** Eerbetoon — genomineerd voor het Appeltje van Oranje. */
+export const AWARD = {
+  title: "Genomineerd voor het Appeltje van Oranje",
+  description:
+    "Het Oranje Fonds kent sinds 2003 zijn jaarlijkse prijs toe aan organisaties die zich inzetten voor een leefbare samenleving en de sociale samenhang tussen verschillende groepen. Stichting Waterval werd genomineerd voor deze buitengewoon eervolle prijs: een bronzen beeldje en een geldbedrag van € 15.000, uitgereikt op Paleis Noordeinde door onze beschermvrouwe Prinses Máxima.",
+  note:
+    "Een Appeltje van Oranje is in de eerste plaats waardering voor het werk en de inzet van de winnende organisatie — en bedoeld om anderen te inspireren soortgelijke initiatieven op te zetten.",
+  facts: ["Oranje Fonds", "12 mei 2009", "Paleis Noordeinde", "€ 15.000"],
+} as const;
+
+/** Onze visie — drie pijlers van de bestaande website. */
+export const VISION = [
   {
-    icon: "workshops",
-    title: "Workshops & trainingen",
+    icon: "verbinding",
+    title: "Verbinding",
     description:
-      "Educatieve en praktische workshops die kinderen, jongeren en volwassenen helpen om nieuwe vaardigheden te ontwikkelen.",
+      "Dialoog is ons belangrijkste instrument om verdeeldheid tegen te gaan en bruggen te bouwen tussen mensen. Op een laagdrempelige en gezellige manier laten wij mensen elkaar ontmoeten en kennen — via georganiseerde bijeenkomsten rond sociaal-maatschappelijke thema's en (inter)nationale dagen, en door het openstellen van onze locatie als ontmoetingsplek.",
   },
   {
-    icon: "art",
-    title: "Kunst en cultuur",
+    icon: "zelfontwikkeling",
+    title: "Zelfontwikkeling",
     description:
-      "We brengen mensen samen via culturele activiteiten, inspiratieavonden en ontmoetingsmomenten die verbinding en begrip versterken.",
+      "Ontwikkeling en verandering beginnen bij de mens zelf. Door te werken aan persoonlijke, spirituele en professionele groei werken we aan een betere samenleving. Wij geloven in een leven lang leren: leeskringen, seminars, workshops en mentoringsprojecten voor jong en oud. Daarnaast bieden we de gelegenheid om op onze locatie te werken aan school, studie of werk.",
   },
   {
-    icon: "neighborhood",
-    title: "Wijkprojecten",
+    icon: "maatschappij",
+    title: "Bijdragen aan maatschappelijke vraagstukken",
     description:
-      "Samen met buurtbewoners werken aan projecten die de wijk verbeteren en de sociale cohesie versterken.",
-  },
-  {
-    icon: "volunteers",
-    title: "Samenwerking & vrijwilligers",
-    description:
-      "Samen met scholen, buurthuizen, gemeenten en lokale partners zetten we projecten neer die écht impact maken — gedragen door betrokken vrijwilligers.",
-  },
-  {
-    icon: "loneliness",
-    title: "Tegen eenzaamheid",
-    description:
-      "Doe mee aan sociale activiteiten en krijg toegang tot middelen die helpen in het dagelijks leven.",
-  },
-  {
-    icon: "festival",
-    title: "Buurtfestivals & evenementen",
-    description:
-      "Van buurtavonden tot grotere evenementen: we creëren momenten waar bewoners elkaar leren kennen en de sociale cohesie groeit.",
+      "Wij moedigen mensen aan hun sociale verantwoordelijkheid te nemen door te participeren en liefdadigheid te verrichten in de buurt, wijk en stad waarin ze leven. Samenwerkend met andere instanties werken we positief-kritisch en oplossingsgericht, met vertrouwen, vrijheid en vrede als kernwaarden.",
   },
 ] as const;
 
@@ -148,7 +197,7 @@ export type NavLink = {
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Over ons", href: "#over-ons" },
-  { label: "Wat we doen", href: "#waar-we-voor-staan" },
+  { label: "Wat we doen", href: "#wat-doen-wij" },
   { label: "Activiteiten", href: "#activiteiten" },
   { label: "Meedoen", href: "#meedoen" },
   { label: "Contact", href: "#contact" },

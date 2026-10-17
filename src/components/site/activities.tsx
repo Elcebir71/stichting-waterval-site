@@ -1,22 +1,45 @@
 import Image from "next/image";
 import {
   ArrowRight,
+  Award,
+  BookOpen,
+  BookUser,
   Camera,
   CalendarHeart,
-  HeartHandshake,
+  Cookie,
+  Coffee,
+  HandHeart,
   Languages,
+  Mic,
+  MoonStar,
+  PenLine,
+  PartyPopper,
+  Target,
   Trees,
+  UtensilsCrossed,
   Facebook,
   Instagram,
 } from "lucide-react";
 import { asset } from "@/lib/paths";
-import { ACTIVITIES, EXTRA_ACTIVITIES, SITE } from "./content";
+import { ACTIVITIES, AWARD, WHAT_WE_DO, SITE } from "./content";
 
-const EXTRA_ICONS: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>> = {
+const PROGRAM_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
+> = {
+  "book-open": BookOpen,
+  "pen-line": PenLine,
+  target: Target,
+  "book-user": BookUser,
   languages: Languages,
   camera: Camera,
+  utensils: UtensilsCrossed,
   trees: Trees,
-  "heart-handshake": HeartHandshake,
+  party: PartyPopper,
+  coffee: Coffee,
+  cookie: Cookie,
+  "moon-star": MoonStar,
+  mic: Mic,
 };
 
 export function Activities() {
@@ -130,25 +153,68 @@ export function Activities() {
           )}
         </ul>
 
+        <aside
+          aria-labelledby="award-titel"
+          className="mt-10 overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-accent via-background to-background"
+        >
+          <div className="flex flex-col gap-5 p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-500 text-white shadow-md">
+                <Award className="h-6 w-6" aria-hidden={true} />
+              </span>
+              <div>
+                <h3
+                  id="award-titel"
+                  className="text-xl font-semibold text-foreground sm:text-2xl"
+                >
+                  {AWARD.title}
+                </h3>
+                <p className="mt-2 leading-relaxed text-muted-foreground">
+                  {AWARD.description}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {AWARD.note}
+                </p>
+              </div>
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {AWARD.facts.map((fact) => (
+                <li
+                  key={fact}
+                  className="rounded-full border border-amber-300 bg-background px-3 py-1 text-xs font-semibold text-amber-700"
+                >
+                  {fact}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <div id="wat-doen-wij" className="mt-12 scroll-mt-24">
+          <h3 className="text-2xl font-semibold tracking-tight text-primary">
+            Wat doen wij?
+          </h3>
+          <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
+            Educatieve en culturele activiteiten, o.a.:
+          </p>
+        </div>
+
         <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {EXTRA_ACTIVITIES.map((activity) => {
-            const Icon = EXTRA_ICONS[activity.icon ?? "heart-handshake"] ?? HeartHandshake;
+          {WHAT_WE_DO.map((item) => {
+            const Icon = PROGRAM_ICONS[item.icon] ?? HandHeart;
             return (
               <li
-                key={activity.title}
+                key={item.title}
                 className="rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-primary">
                   <Icon className="h-5 w-5" aria-hidden={true} />
                 </span>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-amber-600">
-                  {activity.kicker}
-                </p>
-                <h3 className="mt-1 font-semibold text-foreground">
-                  {activity.title}
-                </h3>
+                <h4 className="mt-3 font-semibold text-foreground">
+                  {item.title}
+                </h4>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                  {activity.description}
+                  {item.description}
                 </p>
               </li>
             );
