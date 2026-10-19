@@ -53,9 +53,9 @@ export const ACTIVITIES: Activity[] = [
     kicker: "Buurt & verbinding",
     description:
       "Een laagdrempelig project waarin buurtbewoners met verschillende achtergronden elkaar leren kennen, vaak onder het genot van zelfgemaakte hapjes.",
-    image: "/images/bezoek-je-buren.webp",
+    image: "/images/bezoek-je-buren-2.webp",
     imageAlt:
-      "Buren elkaar vriendschappelijk verwelkomen aan de deur met bloemen en een cadeautje",
+      "Bewoners van verschillende achtergronden zitten gezellig samen in de huiskamer: Turks theedrinken met vers gebak en lekkernijen op tafel",
   },
   {
     title: "Huiswerkbegeleiding",

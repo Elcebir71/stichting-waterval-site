@@ -52,12 +52,8 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  {...(link.external
-                    ? {
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      }
-                    : {})}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}
@@ -83,7 +79,11 @@ export function SiteHeader() {
             asChild
             className="hidden bg-amber-500 text-sm font-semibold text-primary-foreground hover:bg-amber-600 sm:inline-flex"
           >
-            <a href="#steun-ons">
+            <a
+              href="#steun-ons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Heart aria-hidden="true" className="mr-2 h-4 w-4" />
               Steun ons
             </a>
@@ -117,13 +117,9 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  {...(link.external
-                    ? {
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      }
-                    : {})}
                   className="flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}
@@ -144,6 +140,8 @@ export function SiteHeader() {
             <li>
               <a
                 href="#steun-ons"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="mt-1 block rounded-md bg-amber-500 px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-amber-600"
               >

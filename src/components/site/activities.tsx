@@ -104,6 +104,8 @@ export function Activities() {
                     </p>
                     <a
                       href="#contact"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-amber-600"
                     >
                       Vraag er naar
@@ -139,6 +141,8 @@ export function Activities() {
                   </p>
                   <a
                     href="#contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-amber-600"
                   >
                     Vraag er naar

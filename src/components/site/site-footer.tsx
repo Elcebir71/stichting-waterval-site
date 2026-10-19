@@ -60,12 +60,8 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    {...(link.external
-                      ? {
-                          target: "_blank",
-                          rel: "noopener noreferrer",
-                        }
-                      : {})}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-white/80 transition-colors hover:text-white"
                   >
                     {link.label}
@@ -93,6 +89,8 @@ export function SiteFooter() {
               <li>
                 <a
                   href="#anbi"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   ANBI-gegevens
@@ -101,6 +99,8 @@ export function SiteFooter() {
               <li>
                 <a
                   href="#steun-ons"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   Doneren
@@ -109,6 +109,8 @@ export function SiteFooter() {
               <li>
                 <a
                   href="#contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   Contact opnemen

@@ -49,7 +49,11 @@ export function Involvement() {
                   size="lg"
                   className="h-12 bg-white px-6 text-base font-semibold text-primary hover:bg-white/90"
                 >
-                  <a href="#contact">
+                  <a
+                    href="#contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Word vrijwilliger
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden={true} />
                   </a>
@@ -60,7 +64,11 @@ export function Involvement() {
                   variant="outline"
                   className="h-12 border-white/40 bg-transparent px-6 text-base font-semibold text-white hover:bg-white/10 hover:text-white"
                 >
-                  <a href="#steun-ons">
+                  <a
+                    href="#steun-ons"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Heart className="mr-2 h-5 w-5" aria-hidden={true} />
                     Steun ons werk
                   </a>
