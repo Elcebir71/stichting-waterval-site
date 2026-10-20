@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Heart, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { asset } from "@/lib/paths";
@@ -10,6 +12,7 @@ import { NAV_LINKS, SITE } from "./content";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,9 +34,9 @@ export function SiteHeader() {
         Ga naar de inhoud
       </a>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a
-          href="#top"
-          aria-label={`${SITE.name} — naar boven`}
+        <Link
+          href="/"
+          aria-label={`${SITE.name} — home`}
           className="flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           <Image
@@ -44,33 +47,49 @@ export function SiteHeader() {
             className="h-9 w-auto sm:h-10"
             priority
           />
-        </a>
+        </Link>
 
         <nav aria-label="Hoofdnavigatie" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
-                >
-                  {link.label}
-                  {link.external && (
-                    <>
-                      <ExternalLink
-                        className="h-3 w-3 text-muted-foreground"
-                        aria-hidden={true}
-                      />
-                      <span className="sr-only">
-                        (opent in nieuw venster)
-                      </span>
-                    </>
-                  )}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active =
+                !link.external &&
+                (link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href));
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    {...(link.external
+                      ? {
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        }
+                      : {})}
+                    aria-current={active ? "page" : undefined}
+                    className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-primary ${
+                      active
+                        ? "bg-secondary font-semibold text-primary"
+                        : "text-foreground/80"
+                    }`}
+                  >
+                    {link.label}
+                    {link.external && (
+                      <>
+                        <ExternalLink
+                          className="h-3 w-3 text-muted-foreground"
+                          aria-hidden={true}
+                        />
+                        <span className="sr-only">
+                          (opent in nieuw venster)
+                        </span>
+                      </>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -79,14 +98,10 @@ export function SiteHeader() {
             asChild
             className="hidden bg-amber-500 text-sm font-semibold text-primary-foreground hover:bg-amber-600 sm:inline-flex"
           >
-            <a
-              href="#steun-ons"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/meedoen#steun-ons">
               <Heart aria-hidden="true" className="mr-2 h-4 w-4" />
               Steun ons
-            </a>
+            </Link>
           </Button>
           <Button
             variant="outline"
@@ -113,40 +128,54 @@ export function SiteHeader() {
           className="border-t bg-background lg:hidden"
         >
           <ul className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
-                >
-                  {link.label}
-                  {link.external && (
-                    <>
-                      <ExternalLink
-                        className="h-4 w-4 text-muted-foreground"
-                        aria-hidden={true}
-                      />
-                      <span className="sr-only">
-                        (opent in nieuw venster)
-                      </span>
-                    </>
-                  )}
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active =
+                !link.external &&
+                (link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href));
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    {...(link.external
+                      ? {
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        }
+                      : {})}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${
+                      active
+                        ? "bg-secondary font-semibold text-primary"
+                        : "text-foreground/85"
+                    }`}
+                  >
+                    {link.label}
+                    {link.external && (
+                      <>
+                        <ExternalLink
+                          className="h-4 w-4 text-muted-foreground"
+                          aria-hidden={true}
+                        />
+                        <span className="sr-only">
+                          (opent in nieuw venster)
+                        </span>
+                      </>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
             <li>
-              <a
-                href="#steun-ons"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/meedoen#steun-ons"
                 onClick={() => setOpen(false)}
                 className="mt-1 block rounded-md bg-amber-500 px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-amber-600"
               >
                 Steun ons
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

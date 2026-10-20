@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { asset } from "@/lib/paths";
@@ -47,14 +48,10 @@ export function Hero() {
               size="lg"
               className="h-12 bg-primary px-6 text-base font-semibold hover:bg-primary/90"
             >
-              <a
-                href="#activiteiten"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/activiteiten">
                 Ontdek onze activiteiten
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-              </a>
+              </Link>
             </Button>
             <Button
               asChild
@@ -62,13 +59,7 @@ export function Hero() {
               variant="outline"
               className="h-12 border-primary/25 px-6 text-base font-semibold text-primary hover:bg-secondary hover:text-primary"
             >
-              <a
-                href="#over-ons"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Leer ons kennen
-              </a>
+              <Link href="/over-ons">Leer ons kennen</Link>
             </Button>
           </div>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-muted-foreground">

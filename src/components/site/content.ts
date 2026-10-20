@@ -196,11 +196,11 @@ export type NavLink = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Over ons", href: "#over-ons" },
-  { label: "Wat we doen", href: "#wat-doen-wij" },
-  { label: "Activiteiten", href: "#activiteiten" },
-  { label: "Meedoen", href: "#meedoen" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Over ons", href: "/over-ons" },
+  { label: "Activiteiten", href: "/activiteiten" },
+  { label: "Meedoen", href: "/meedoen" },
+  { label: "Contact", href: "/contact" },
   {
     label: "Basisschool Waterval",
     href: SITE.basisschool,

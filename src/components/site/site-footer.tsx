@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Facebook,
   Instagram,
@@ -58,24 +59,28 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-white/80 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                    {link.external && (
-                      <>
-                        {" "}
-                        <ExternalLink
-                          className="inline h-3 w-3"
-                          aria-hidden={true}
-                        />
-                        <span className="sr-only">(opent in nieuw venster)</span>
-                      </>
-                    )}
-                  </a>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/80 transition-colors hover:text-white"
+                    >
+                      {link.label}{" "}
+                      <ExternalLink
+                        className="inline h-3 w-3"
+                        aria-hidden={true}
+                      />
+                      <span className="sr-only">(opent in nieuw venster)</span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/80 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -87,34 +92,28 @@ export function SiteFooter() {
             </h2>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <a
-                  href="#anbi"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/meedoen#anbi"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   ANBI-gegevens
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#steun-ons"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/meedoen#steun-ons"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   Doneren
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="text-sm text-white/80 transition-colors hover:text-white"
                 >
                   Contact opnemen
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

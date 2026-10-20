@@ -1,7 +1,7 @@
 import { HeartHandshake, Sprout, HandHeart, Quote } from "lucide-react";
 import { VISION } from "./content";
 
-const VISION_ICONS: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>> = {
+export const VISION_ICONS: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>> = {
   verbinding: HeartHandshake,
   zelfontwikkeling: Sprout,
   maatschappij: HandHeart,

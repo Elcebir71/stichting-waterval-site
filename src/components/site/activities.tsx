@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -102,15 +103,13 @@ export function Activities() {
                     <p className="leading-relaxed text-muted-foreground">
                       {activity.description}
                     </p>
-                    <a
-                      href="#contact"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-amber-600"
                     >
                       Vraag er naar
                       <ArrowRight className="h-4 w-4" aria-hidden={true} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -139,10 +138,8 @@ export function Activities() {
                   <p className="leading-relaxed text-muted-foreground">
                     {activity.description}
                   </p>
-                  <a
-                    href="#contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/contact"
                     className="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-amber-600"
                   >
                     Vraag er naar
@@ -150,7 +147,7 @@ export function Activities() {
                       className="h-4 w-4"
                       aria-hidden={true}
                     />
-                  </a>
+                  </Link>
                 </div>
               </li>
             )
